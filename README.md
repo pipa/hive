@@ -12,7 +12,7 @@ Entire sandbox for the "Hive" application. This is a testing repo to test an ent
 To install, you need to clone the repo with `recurse-submodules` to pull the submodules as well. Check each submodule
 
 ```bash
-git clone --recurse-submodules -j8 git@bitbucket.org:flukyfactory/hive.git
+git clone --recurse-submodules -j8 git@github.com:pipa/hive.git
 cd hive
 docker-compose up --build
 ```
@@ -53,8 +53,8 @@ To get submodules the way they are here, you need to follow these steps:
 
 
 # Add the given repositories as a submodule at the given path
-  git submodule add git@github.com:pipa/micro2.git /micros/micro2
-  git submodule add git@github.com:pipa/micro1.git /micros/micro1
+  git submodule add git@github.com:pipa/hive-front.git front
+  git submodule add git@github.com:pipa/hive.git-api api
   # git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
 
 # To update submodules to latest sub-repo's branch tip
@@ -69,12 +69,6 @@ We use some internals configs to the repo so, for this to work, you need to add 
 git config --local include.path ../.gitconfig
 ```
 
-Some of the helpers included in the local gitconfig:
-
-```bash
-git pu # pulls each submodule's branch and the main repo's branch
-```
-
 ------------
 
 The correct mental model to have is that the parent project "hive" points to a very specific revision of the submodules. Thus, if you make changes to the submodules' repo, these changes will not be visible in "hive" unless you update the pointer accordingly.
@@ -85,7 +79,7 @@ Another key step here is that you must go into the submodule's directory and per
 
 ------------
 
-To remove submodules, here is the command
+To remove a submodule, do the following:
 
 ```bash
 git submodule rm [submodule's name]
@@ -102,44 +96,3 @@ git submodule rm [submodule's name]
 ## Credits
 
 TODO: Write credits
-
-# Client directory structure goal:
-```Markdown
-Client - [master|staging|...n]
-┣━ docker-compose.yml
-
-┣━┳ MayanPrincess
-┃⬚┣━ docker-compose.yml
-┃⬚┣━┳ API
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┣━┳ Front
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┗━┳ Admin
-┃⬚⬚⬚┗━ Dockerfile
-
-┣━┳ REx
-┃⬚┣━ docker-compose.yml
-┃⬚┣━┳ API
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┣━┳ Pagadito
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┣━┳ JustGeo
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┣━┳ Front
-┃⬚┃⬚┗━ Dockerfile
-┃⬚┗━┳ Admin
-┃⬚⬚⬚┗━ Dockerfile
-
-┣━┳ Galaxy
-⬚⬚┣━ docker-compose.yml
-⬚⬚┣━┳ API
-⬚⬚┃⬚┗━ Dockerfile
-⬚⬚┣━┳ Pagadito
-⬚⬚┃⬚┗━ Dockerfile
-⬚⬚┣━┳ JustGeo
-⬚⬚┃⬚┗━ Dockerfile
-⬚⬚┣━┳ Front
-⬚⬚┃⬚┗━ Dockerfile
-⬚⬚┗━┳ Admin
-⬚⬚⬚⬚┗━ Dockerfile
-```
