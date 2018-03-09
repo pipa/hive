@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    build: './api'
+    ports:
+      - 8888:8888
+    # command: /app/main
+  front:
+    build: './front'
+    ports:
+      - 9999:9999
+    volumes:
+      - ./front:/webroot/default
+    command: node /webroot/default/index.js

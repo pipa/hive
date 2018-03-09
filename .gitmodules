@@ -1,0 +1,6 @@
+[submodule "front"]
+	path = front
+	url = git@github.com:pipa/hive-front.git
+[submodule "api"]
+	path = api
+	url = git@github.com:pipa/hive-api.git

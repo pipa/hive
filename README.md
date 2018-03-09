@@ -54,16 +54,16 @@ To get submodules the way they are here, you need to follow these steps:
 ```bash
 # Create the new folder
   mkdir -p ~/sites/hive
-    cd ~/sites/hive
+  cd ~/sites/hive
 
 
 # Add the given repositories as a submodule at the given path
-      git submodule add git@github.com:pipa/micro2.git /micros/micro2
-        git submodule add git@github.com:pipa/micro1.git /micros/micro1
-          # git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
+  git submodule add git@github.com:pipa/micro2.git /micros/micro2
+  git submodule add git@github.com:pipa/micro1.git /micros/micro1
+  # git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
 
 # To update submodules to latest sub-repo's branch tip
-          git submodule update --recursive --remote
+  git submodule update --recursive --remote
 ```
 
 ## Extras
@@ -110,3 +110,44 @@ git submodule rm [submodule's name]
 ===========
 
 TODO: Write credits
+
+# Client directory structure goal:
+```Markdown
+Client - [master|staging|...n]
+┣━ docker-compose.yml
+
+┣━┳ MayanPrincess
+┃⬚┣━ docker-compose.yml
+┃⬚┣━┳ API
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┣━┳ Front
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┗━┳ Admin
+┃⬚⬚⬚┗━ Dockerfile
+
+┣━┳ REx
+┃⬚┣━ docker-compose.yml
+┃⬚┣━┳ API
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┣━┳ Pagadito
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┣━┳ JustGeo
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┣━┳ Front
+┃⬚┃⬚┗━ Dockerfile
+┃⬚┗━┳ Admin
+┃⬚⬚⬚┗━ Dockerfile
+
+┣━┳ Galaxy
+⬚⬚┣━ docker-compose.yml
+⬚⬚┣━┳ API
+⬚⬚┃⬚┗━ Dockerfile
+⬚⬚┣━┳ Pagadito
+⬚⬚┃⬚┗━ Dockerfile
+⬚⬚┣━┳ JustGeo
+⬚⬚┃⬚┗━ Dockerfile
+⬚⬚┣━┳ Front
+⬚⬚┃⬚┗━ Dockerfile
+⬚⬚┗━┳ Admin
+⬚⬚⬚⬚┗━ Dockerfile
+```
