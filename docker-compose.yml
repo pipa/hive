@@ -2,14 +2,23 @@ version: '3'
 
 services:
   api:
-    build: './api'
+    environment:
+      - APP_ENV=development
+      - PORT=8888
+    # Volumes only for dev, since itll be compiled for prod
+    volumes:
+      - ./api/app:/go/src/github.com/pipa/app
     ports:
       - 8888:8888
-    # command: /app/main
+    build: './api'
   front:
-    build: './front'
+    environment:
+      - NODE_ENV=development
+      - PORT=9999
     ports:
       - 9999:9999
+    # Volumes only for dev, since itll be compiled for prod
     volumes:
-      - ./front:/webroot/default
-    command: node /webroot/default/index.js
+      - ./front/:/webroot/default
+    command: npm start
+    build: './front'

@@ -42,7 +42,7 @@ docker-compose up
 
 We now have the site running with a front(`localhost:8888`) and an API(`localhost:9999`) container.
 
-## How to achive this
+## How to achieve this
 
 To get submodules the way they are here, you need to follow these steps:
 
