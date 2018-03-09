@@ -54,7 +54,7 @@ To get submodules the way they are here, you need to follow these steps:
 
 # Add the given repositories as a submodule at the given path
   git submodule add git@github.com:pipa/hive-front.git front
-  git submodule add git@github.com:pipa/hive.git-api api
+  git submodule add git@github.com:pipa/hive-api.git api
   # git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
 
 # To update submodules to latest sub-repo's branch tip
