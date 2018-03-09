@@ -1,16 +1,13 @@
 # Hive
-=======
 
 Entire sandbox for the "Hive" application. This is a testing repo to test an entire cluster for an application with all the services needed, on separate repos, added as submodules in git
 
 ## Pre-requisites
-==================
 
 * [git](https://git-scm.com/downloads) >= 1.8.2
 * [dockers](https://www.docker.com/community-edition)
 
 ## Installation
-================
 
 To install, you need to clone the repo with `recurse-submodules` to pull the submodules as well. Check each submodule
 
@@ -36,7 +33,6 @@ We now have the repo with submodules and a docker-compose with all(services) you
 `docker-compose` will call each submodules' Dockerfile and build it service with is needed. For this example, it builds a container with GoLang and a container with NodeJS...this, to demonstrate how we can work with different languages and complex setups, easily.
 
 ## Usage
-=========
 
 `docker-compose up --build` builds the containers' images, if you don\'t have them. to avoid this -and everytime you work on the project- just run:
 
@@ -47,7 +43,6 @@ docker-compose up
 We now have the site running with a front(`localhost:8888`) and an API(`localhost:9999`) container.
 
 ## How to achive this
-======================
 
 To get submodules the way they are here, you need to follow these steps:
 
@@ -67,7 +62,6 @@ To get submodules the way they are here, you need to follow these steps:
 ```
 
 ## Extras
-==========
 
 We use some internals configs to the repo so, for this to work, you need to add the local `.gitconfig` setting in your git local configs.
 
@@ -98,7 +92,6 @@ git submodule rm [submodule's name]
 ```
 
 ## Contributing
-================
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -107,7 +100,6 @@ git submodule rm [submodule's name]
 5. Submit a pull request :D
 
 ## Credits
-===========
 
 TODO: Write credits
 
