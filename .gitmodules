@@ -4,3 +4,6 @@
 [submodule "api"]
 	path = api
 	url = git@github.com:pipa/hive-api.git
+[submodule "db"]
+	path = db
+	url = git@github.com:pipa/hive-db.git
