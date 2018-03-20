@@ -12,34 +12,33 @@ services:
     ports:
       - 8888:8888
     build: './api'
-  # front:
-  #   environment:
-  #     - NODE_ENV=development
-  #     - PORT=9999
-  #   ports:
-  #     - 9999:9999
-  #   # Volumes only for dev, since itll be compiled for prod
-  #   volumes:
-  #     - ./front/:/webroot/default
-  #   command: npm start
-  #   build: './front'
-
+  front:
+    environment:
+      - NODE_ENV=development
+      - PORT=9999
+    ports:
+      - 9999:9999
+    # Volumes only for dev, since itll be compiled for prod
+    volumes:
+      - ./front/:/webroot/default
+    command: npm start
+    build: './front'
   # Cockroach
-  # roach-ui:
-  #   image: cockroachdb/cockroach:v1.1.5
-  #   command: start --insecure --http-port=9000
-  #   volumes:
-  #     - ./db/tmp:/tmp
-  #   ports:
-  #     - 9000:9000
-  #     - 26257:26257
-  # roach-01:
-  #   image: cockroachdb/cockroach:v1.1.5
-  #   command: start --insecure --join=roach-ui
-  #   volumes:
-  #     - ./db/tmp:/tmp
-  # roach-02:
-  #   image: cockroachdb/cockroach:v1.1.5
-  #   command: start --insecure --join=roach-ui
-  #   volumes:
-  #     - ./db/tmp:/tmp
+  roach-ui:
+    image: cockroachdb/cockroach:v1.1.5
+    command: start --insecure --http-port=9000
+    volumes:
+      - ./db/tmp:/tmp
+    ports:
+      - 9000:9000
+      - 26257:26257
+  roach-01:
+    image: cockroachdb/cockroach:v1.1.5
+    command: start --insecure --join=roach-ui
+    volumes:
+      - ./db/tmp:/tmp
+  roach-02:
+    image: cockroachdb/cockroach:v1.1.5
+    command: start --insecure --join=roach-ui
+    volumes:
+      - ./db/tmp:/tmp
